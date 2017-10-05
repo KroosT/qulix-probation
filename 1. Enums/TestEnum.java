@@ -1,6 +1,6 @@
 class TestEnum {
 
-    static int edgesCount(Figure2 f) {
+    static int edgesCount(final Figure2 f) {
         switch (f) {
             case CIRCLE:
                 return Integer.MAX_VALUE;

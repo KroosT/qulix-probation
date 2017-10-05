@@ -1,9 +1,9 @@
 enum Figure1 {
     CIRCLE(Integer.MAX_VALUE), SQUARE(4), TRIANGLE(3);
     
-    private int edges;
+    private final int edges;
     
-    Figure1(int edges) {
+    Figure1(final int edges) {
       this.edges = edges;
     }
     
