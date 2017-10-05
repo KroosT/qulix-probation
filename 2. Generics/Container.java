@@ -2,12 +2,13 @@ package com.example;
 
 import android.support.annotation.NonNull;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
 
 class Container<T> {
 
-    private final ArrayList<T> array;
+    private final List<T> array;
 
     Container() {
         this.array = new ArrayList<>();
@@ -20,7 +21,7 @@ class Container<T> {
         this.array = container.getArray();
     }
 
-    private ArrayList<T> getArray() {
+    private List<T> getArray() {
         return array;
     }
 
