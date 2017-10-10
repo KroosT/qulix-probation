@@ -1,21 +1,22 @@
 package ContainerTask2;
 
-import com.sun.istack.internal.NotNull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import Utils.Validator;
 
+@ParametersAreNonnullByDefault
 class Realtek implements AnswersTo {
 
     private final String mProductType;
 
-    Realtek(@NotNull final String productType) {
+    Realtek(final String productType) {
         Validator.isArgNotNull(productType, "productType");
         Validator.isArgNotNull(productType, "productType");
         mProductType = productType;
     }
 
     @Override
-    public boolean answersTo(@NotNull final String req) {
+    public boolean answersTo(final String req) {
         Validator.isArgNotNull(req, "req");
         return req.equalsIgnoreCase(mProductType);
     }
