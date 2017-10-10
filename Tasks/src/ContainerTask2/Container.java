@@ -1,8 +1,12 @@
 package ContainerTask2;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import Utils.Validator;
 
 class Container<T extends AnswersTo> {
 
@@ -12,12 +16,10 @@ class Container<T extends AnswersTo> {
         mList = new ArrayList<>();
     }
 
-    Container(final Container<T> container) {
-        if (container == null) {
-            mList = new ArrayList<>();
-        } else {
-            mList = new ArrayList<>(container.getList());
-        }
+    Container(@NotNull final Container<T> container) {
+        Validator.isArgNotNull(container, "container");
+        mList = new ArrayList<>(container.getList());
+
     }
 
     List<T> getList() {
@@ -36,7 +38,8 @@ class Container<T extends AnswersTo> {
         mList.removeAll(Collections.singleton(object));
     }
 
-    Container<T> allThatAnswersTo(final String req) {
+    Container<T> allThatAnswersTo(@NotNull final String req) {
+        Validator.isArgNotNull(req, "req");
         final Container<T> containerThatAnswersTo = new Container<>();
         for (final T object : mList) {
             if (object.answersTo(req))
