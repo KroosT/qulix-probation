@@ -1,30 +1,27 @@
 package Myabe;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 class Maybe<T> {
 
-    private final List<T> mValue;
+    private final T mValue;
 
-    Maybe() {
-        mValue = new ArrayList<>();
+    private Maybe(final T value) {
+        mValue = value;
     }
 
-    void add(final T value) {
-        mValue.add(value);
+    public static <T> Maybe<T> create(final T value) {
+        return new Maybe<>(value);
     }
 
-    T get(final T value) {
-        if (isDefined(value)) {
-            return value;
-        } else {
-            throw new NoSuchElementException("Instance has no value.");
+    public T getValueOrThrow() {
+        if (mValue == null) {
+            throw new NoSuchElementException("No such value.");
         }
+        return mValue;
     }
 
-    private boolean isDefined(final T value) {
-        return mValue.contains(value);
+    public boolean isDefined() {
+        return mValue != null;
     }
 }
