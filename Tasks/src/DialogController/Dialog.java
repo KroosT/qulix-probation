@@ -1,9 +1,15 @@
 package DialogController;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import Utils.Validator;
+
+@ParametersAreNonnullByDefault
 class Dialog<T extends Controller> {
     private final T mController;
 
     Dialog(final T controller) {
+        Validator.isArgNotNull(controller, "controller");
         mController = controller;
     }
 

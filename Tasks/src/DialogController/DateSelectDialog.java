@@ -1,5 +1,8 @@
 package DialogController;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+@ParametersAreNonnullByDefault
 class DateSelectDialog extends Dialog<DateSelector> {
 
     public DateSelectDialog(final DateSelector controller) {
