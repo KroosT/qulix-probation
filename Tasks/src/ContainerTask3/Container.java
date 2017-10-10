@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
+import Utils.Validator;
+
+@ParametersAreNonnullByDefault
 class Container<T extends AnswersTo<E>, E> {
 
     private final List<T> mList;
@@ -13,9 +18,8 @@ class Container<T extends AnswersTo<E>, E> {
     }
 
     Container(final Container<T, E> container) {
-        if (container == null) {
-            mList = new ArrayList<>();
-        } else mList = new ArrayList<>(container.getList());
+        Validator.isArgNotNull(container, "container");
+        mList = new ArrayList<>(container.getList());
     }
 
     List<T> getList() {
@@ -35,6 +39,7 @@ class Container<T extends AnswersTo<E>, E> {
     }
 
     Container<T, E> allThatAnswersTo(final E req) {
+        Validator.isArgNotNull(req, "req");
         final Container<T, E> containerThatAnswersTo = new Container<>();
         for (final T object : mList) {
             if (object.answersTo(req))
