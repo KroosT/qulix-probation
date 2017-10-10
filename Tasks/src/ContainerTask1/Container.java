@@ -1,8 +1,12 @@
 package ContainerTask1;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import Utils.Validator;
 
 class Container<T> {
 
@@ -12,12 +16,9 @@ class Container<T> {
         mList = new ArrayList<>();
     }
 
-    Container(final Container<T> container) {
-        if (container == null) {
-            mList = new ArrayList<>();
-        } else {
-            mList = new ArrayList<>(container.getList());
-        }
+    Container(@NotNull final Container<T> container) {
+        Validator.isArgNotNull(container, "container");
+        mList = new ArrayList<>(container.getList());
     }
 
     List<T> getList() {
