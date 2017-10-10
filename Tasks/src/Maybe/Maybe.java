@@ -1,3 +1,5 @@
+package Maybe;
+
 import java.util.NoSuchElementException;
 
 class Maybe<T> {
