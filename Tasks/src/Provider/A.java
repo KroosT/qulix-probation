@@ -1,0 +1,4 @@
+package Provider;
+
+class A {
+}
