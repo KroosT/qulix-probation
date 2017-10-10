@@ -7,8 +7,8 @@ import java.util.NoSuchElementException;
 
 public class MaybeTest {
 
-    private final Maybe<Integer> mIntegerMaybe = Maybe.create(229);
-    private final Maybe<Integer> mNullMaybe = Maybe.create(null);
+    private final Maybe<Integer> mIntegerMaybe = Maybe.just(229);
+    private final Maybe<Integer> mNullMaybe = Maybe.empty();
 
     @Test
     public void testGet() throws Exception {

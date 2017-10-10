@@ -2,16 +2,29 @@ package Maybe;
 
 import java.util.NoSuchElementException;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
+
+
+@ParametersAreNonnullByDefault
 class Maybe<T> {
 
+    @Nullable
     private final T mValue;
 
-    private Maybe(final T value) {
+    private Maybe(@Nullable final T value) {
         mValue = value;
     }
 
-    public static <T> Maybe<T> create(final T value) {
+    public static <T> Maybe<T> just(final T value) {
+        if (value == null) {
+            throw new IllegalArgumentException();
+        }
         return new Maybe<>(value);
+    }
+
+    public static <T> Maybe<T> empty() {
+        return new Maybe<>((T) null);
     }
 
     public T getValueOrThrow() {
