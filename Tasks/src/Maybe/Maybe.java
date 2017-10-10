@@ -5,6 +5,8 @@ import java.util.NoSuchElementException;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import Utils.Validator;
+
 
 @ParametersAreNonnullByDefault
 class Maybe<T> {
@@ -17,9 +19,7 @@ class Maybe<T> {
     }
 
     public static <T> Maybe<T> just(final T value) {
-        if (value == null) {
-            throw new IllegalArgumentException();
-        }
+        Validator.isArgNotNull(value, "value");
         return new Maybe<>(value);
     }
 
