@@ -2,7 +2,7 @@ package Enums;
 
 class TestEnum {
 
-    static int edgesCount(final Figure2 figure) throws Exception {
+    static int edgesCountOrThrow(final Figure2 figure) throws Exception {
         switch (figure) {
             case CIRCLE:
                 return Integer.MAX_VALUE;
