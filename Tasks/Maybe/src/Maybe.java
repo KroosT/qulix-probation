@@ -1,5 +1,3 @@
-package Myabe;
-
 import java.util.NoSuchElementException;
 
 class Maybe<T> {
