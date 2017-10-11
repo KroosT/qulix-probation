@@ -1,4 +1,4 @@
-package com.qulix.shestakaa.maybe;
+package com.qulix.shestakaa.maybe.Maybe;
 
 import com.qulix.shestakaa.maybe.Utils.Validator;
 

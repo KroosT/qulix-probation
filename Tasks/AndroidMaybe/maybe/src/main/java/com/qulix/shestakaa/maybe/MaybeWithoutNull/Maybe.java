@@ -1,21 +1,24 @@
-package com.qulix.shestakaa.maybe;
+package com.qulix.shestakaa.maybe.MaybeWithoutNull;
+
+import com.qulix.shestakaa.maybe.Utils.Validator;
 
 import java.util.NoSuchElementException;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @ParametersAreNonnullByDefault
-public abstract class MaybeWithoutNull<T> {
+public abstract class Maybe<T> {
 
-    private static final MaybeWithoutNull<?> EMPTY = new Empty<Object>();
+    private static final Maybe<?> EMPTY = new Empty<Object>();
 
-    private MaybeWithoutNull() {}
+    private Maybe() {}
 
-    public static <T> MaybeWithoutNull<T> empty() {
-        return (MaybeWithoutNull<T>) EMPTY;
+    public static <T> Maybe<T> empty() {
+        //noinspection unchecked
+        return (Maybe<T>) EMPTY;
     }
 
-    public static <T> MaybeWithoutNull<T> just(final T value) {
+    public static <T> Maybe<T> just(final T value) {
         return new Just<>(value);
     }
 
@@ -24,7 +27,7 @@ public abstract class MaybeWithoutNull<T> {
     public abstract T get();
 
 
-    private static final class Empty<T> extends MaybeWithoutNull<T>
+    private static final class Empty<T> extends Maybe<T>
     {
         @Override
         public boolean isDefined() {
@@ -37,11 +40,12 @@ public abstract class MaybeWithoutNull<T> {
         }
     }
 
-    private static final class Just<T> extends MaybeWithoutNull<T>
+    private static final class Just<T> extends Maybe<T>
     {
         private final T mValue;
 
         private Just(final T value) {
+            Validator.isArgNotNull(value, "value");
             mValue = value;
         }
 

@@ -1,21 +1,21 @@
-package com.qulix.shestakaa.maybe;
+package com.qulix.shestakaa.maybe.MaybeWithoutNull;
 
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
-public class MaybeWithoutNullTest {
+public class MaybeTest {
 
-    private final MaybeWithoutNull<Integer> empty = MaybeWithoutNull.empty();
-    private final MaybeWithoutNull<Integer> mIntegerMaybeWithoutNull = MaybeWithoutNull.just(223);
+    private final Maybe<Integer> empty = Maybe.empty();
+    private final Maybe<Integer> mIntegerMaybe = Maybe.just(223);
 
     @Test
     public void testGet() throws Exception {
         Integer integerValue = null;
         Integer emptyValue = null;
-        if (mIntegerMaybeWithoutNull.isDefined()) {
-            integerValue = mIntegerMaybeWithoutNull.get();
+        if (mIntegerMaybe.isDefined()) {
+            integerValue = mIntegerMaybe.get();
         }
         if (empty.isDefined()) {
             emptyValue = empty.get();
