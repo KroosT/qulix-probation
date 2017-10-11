@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import javax.annotation.Nullable;
 
 @ParametersAreNonnullByDefault
-class Maybe<T> {
+public class Maybe<T> {
 
     @Nullable
     private final T mValue;
@@ -23,7 +23,7 @@ class Maybe<T> {
     }
 
     public static <T> Maybe<T> empty() {
-        return new Maybe<>((T) null);
+        return new Maybe<>(null);
     }
 
     public T getValueOrThrow() {
@@ -36,4 +36,5 @@ class Maybe<T> {
     public boolean isDefined() {
         return mValue != null;
     }
+
 }
