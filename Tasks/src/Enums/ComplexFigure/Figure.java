@@ -1,12 +1,12 @@
-package Enums;
+package Enums.ComplexFigure;
 
-enum Figure1 {
+enum Figure {
 
     CIRCLE(Integer.MAX_VALUE), SQUARE(4), TRIANGLE(3);
 
     private final int mEdgesCount;
 
-    Figure1(final int edgesCount) {
+    Figure(final int edgesCount) {
         mEdgesCount = edgesCount;
     }
 

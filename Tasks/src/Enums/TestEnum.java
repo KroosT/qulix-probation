@@ -1,8 +1,10 @@
 package Enums;
 
+import Enums.SimpleFigure.Figure;
+
 class TestEnum {
 
-    static int edgesCountOrThrow(final Figure2 figure) throws Exception {
+    static int edgesCountOrThrow(final Figure figure) throws Exception {
         switch (figure) {
             case CIRCLE:
                 return Integer.MAX_VALUE;
