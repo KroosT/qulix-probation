@@ -22,7 +22,7 @@ public class MaybeTest {
     }
 
     @Test
-    public void testGetOfNullMeybe() throws Exception {
+    public void testGetOfNullMaybe() throws Exception {
         Integer nullValue = null;
 
         if (mNullMaybe.isDefined()) {
