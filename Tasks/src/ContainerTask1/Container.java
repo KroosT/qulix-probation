@@ -30,11 +30,11 @@ class Container<T> {
         mList.add(object);
     }
 
-    T remove(final int index) {
+    T removeByIndex(final int index) {
         return mList.remove(index);
     }
 
-    void remove(final T object) {
+    void removeObject(final T object) {
         mList.removeAll(Collections.singleton(object));
     }
 

@@ -12,7 +12,7 @@ public class ContainerTest {
     private final Container<String> mContainerOfStrings = new Container<>();
 
     @Test
-    public void add() throws Exception {
+    public void testAddMethod() throws Exception {
         mContainerOfIntegers.add(30);
         mContainerOfIntegers.add(28);
         mContainerOfIntegers.add(1);
@@ -32,29 +32,29 @@ public class ContainerTest {
     }
 
     @Test
-    public void remove() throws Exception {
+    public void testRemoveObjectByIndex() throws Exception {
         mContainerOfIntegers.add(30);
         mContainerOfIntegers.add(28);
         mContainerOfIntegers.add(1);
-        final Integer removedItem = mContainerOfIntegers.remove(1);
+        final Integer removedItem = mContainerOfIntegers.removeByIndex(1);
         Assert.assertFalse("Container must not contain removed item any more",
                 mContainerOfIntegers.getList().contains(removedItem));
     }
 
     @Test
-    public void remove1() throws Exception {
+    public void testRemoveObject() throws Exception {
         final Integer value = 28;
         mContainerOfIntegers.add(30);
         mContainerOfIntegers.add(28);
         mContainerOfIntegers.add(1);
         mContainerOfIntegers.add(28);
-        mContainerOfIntegers.remove(value);
+        mContainerOfIntegers.removeObject(value);
         Assert.assertFalse("Container must not contain removed item any more",
                 mContainerOfIntegers.getList().contains(value));
     }
 
     @Test
-    public void copyContainer() throws Exception {
+    public void testCopyContainer() throws Exception {
         final Container<Integer> integerContainer = new Container<>(mContainerOfIntegers);
         final Container<String> stringContainer = new Container<>(mContainerOfStrings);
         Assert.assertNotEquals(integerContainer, mContainerOfIntegers);
