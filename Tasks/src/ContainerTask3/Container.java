@@ -19,7 +19,7 @@ class Container<T extends AnswersTo<E>, E> {
 
     Container(final Container<T, E> container) {
         Validator.isArgNotNull(container, "container");
-        mList = new ArrayList<>(container.getList());
+        mList = container.getList();
     }
 
     List<T> getList() {
@@ -30,11 +30,11 @@ class Container<T extends AnswersTo<E>, E> {
         mList.add(object);
     }
 
-    T remove(final int index) {
+    T removeByIndex(final int index) {
         return mList.remove(index);
     }
 
-    void remove(final T object) {
+    void removeObject(final T object) {
         mList.removeAll(Collections.singleton(object));
     }
 
