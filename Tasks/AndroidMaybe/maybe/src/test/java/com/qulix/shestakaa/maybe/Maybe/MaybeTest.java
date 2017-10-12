@@ -11,22 +11,30 @@ public class MaybeTest {
     private final Maybe<Integer> mNullMaybe = Maybe.empty();
 
     @Test
-    public void testGet() throws Exception {
+    public void testGetOfIntegerMaybe() throws Exception {
         Integer integerValue = null;
-        Integer nullValue = null;
+
         if (mIntegerMaybe.isDefined()) {
-            integerValue = mIntegerMaybe.getValueOrThrow();
+            integerValue = mIntegerMaybe.getOrThrow();
         }
-        if (mNullMaybe.isDefined()) {
-            nullValue = mNullMaybe.getValueOrThrow();
-        }
+
         Assert.assertEquals(integerValue, Integer.valueOf(229));
+    }
+
+    @Test
+    public void testGetOfNullMeybe() throws Exception {
+        Integer nullValue = null;
+
+        if (mNullMaybe.isDefined()) {
+            nullValue = mNullMaybe.getOrThrow();
+        }
+
         Assert.assertEquals(nullValue, null);
     }
 
     @Test(expected = NoSuchElementException.class)
     public void testGetWithException() {
-        Assert.assertEquals(mNullMaybe.getValueOrThrow(), null);
+        Assert.assertEquals(mNullMaybe.getOrThrow(), null);
     }
 
 }

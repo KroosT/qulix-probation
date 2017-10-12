@@ -8,20 +8,28 @@ import java.util.NoSuchElementException;
 public class MaybeTest {
 
     private final Maybe<Integer> empty = Maybe.empty();
-    private final Maybe<Integer> mIntegerMaybe = Maybe.just(223);
+    private final Maybe<Integer> mIntegerMaybe = Maybe.just(229);
 
     @Test
-    public void testGet() throws Exception {
+    public void testGetOfIntegerMaybe() throws Exception {
         Integer integerValue = null;
-        Integer emptyValue = null;
+
         if (mIntegerMaybe.isDefined()) {
             integerValue = mIntegerMaybe.get();
         }
+
+        Assert.assertEquals(integerValue, Integer.valueOf(229));
+    }
+
+    @Test
+    public void testGetOfNullMeybe() throws Exception {
+        Integer nullValue = null;
+
         if (empty.isDefined()) {
-            emptyValue = empty.get();
+            nullValue = empty.get();
         }
-        Assert.assertEquals(integerValue, Integer.valueOf(223));
-        Assert.assertEquals(emptyValue, null);
+
+        Assert.assertEquals(nullValue, null);
     }
 
     @Test(expected = NoSuchElementException.class)
