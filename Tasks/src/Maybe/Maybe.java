@@ -27,7 +27,7 @@ class Maybe<T> {
         return new Maybe<>((T) null);
     }
 
-    public T getValueOrThrow() {
+    public T getOrThrow() {
         if (mValue == null) {
             throw new NoSuchElementException("No such value.");
         }
