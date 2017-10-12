@@ -19,7 +19,7 @@ class Container<T> {
 
     Container(final Container<T> container) {
         Validator.isArgNotNull(container, "container");
-        mList = new ArrayList<>(container.getList());
+        mList = container.getList();
     }
 
     List<T> getList() {
