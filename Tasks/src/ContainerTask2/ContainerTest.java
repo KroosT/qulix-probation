@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class ContainerTest {
 
     @Test
-    public void allThatAnswersTo() throws Exception {
+    public void testContainerFilterByCertainParameter() throws Exception {
         final Container<Realtek> realtekContainer = new Container<>();
         realtekContainer.add(new Realtek("Audio"));
         realtekContainer.add(new Realtek("Audio"));

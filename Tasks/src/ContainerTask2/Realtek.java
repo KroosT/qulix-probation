@@ -11,7 +11,6 @@ class Realtek implements AnswersTo {
 
     Realtek(final String productType) {
         Validator.isArgNotNull(productType, "productType");
-        Validator.isArgNotNull(productType, "productType");
         mProductType = productType;
     }
 
