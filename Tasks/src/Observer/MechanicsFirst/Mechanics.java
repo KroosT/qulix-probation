@@ -1,5 +1,6 @@
 package Observer.MechanicsFirst;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +11,10 @@ class Mechanics {
 
     // called by system
     private void onMousePosition(final int x, final int y) {
-        final List<Integer> params = Arrays.asList(x, y);
-        notifyAllSubscribers("onMousePosition", params);
+
+        for (final Observer observer : mObservers) {
+            observer.onMousePositionEvent(Arrays.asList(x, y));
+        }
     }
 
     public void subscribe(final Observer observer) {
@@ -26,9 +29,4 @@ class Mechanics {
         onMousePosition(21, 13);
     }
 
-    private void notifyAllSubscribers(final String methodName, final List<Integer> params) {
-        for (final Observer observer : mObservers) {
-            observer.handleEvent(methodName, params);
-        }
-    }
 }
