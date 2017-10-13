@@ -66,7 +66,9 @@ public class ContainerTest {
 
         final Container<Realtek> copy = new Container<>(mRealtekContainer);
 
-        assertThat(copy.getList()).isNotSameAs(mRealtekContainer.getList());
+        copy.removeAt(2);
+
+        assertThat(mRealtekContainer.getList()).isNotEqualTo(copy.getList());
     }
 
     @Test
