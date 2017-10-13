@@ -1,40 +1,34 @@
 package com.qulix.shestakaa.maybe.Maybe;
 
-import org.junit.Assert;
 import org.junit.Test;
 
+import static org.assertj.core.api.Assertions.*;
 import java.util.NoSuchElementException;
 
 public class MaybeTest {
 
-    private final Maybe<Integer> mIntegerMaybe = Maybe.just(229);
-    private final Maybe<Integer> mNullMaybe = Maybe.empty();
-
     @Test
-    public void testGetOfIntegerMaybe() throws Exception {
-        Integer integerValue = null;
-
-        if (mIntegerMaybe.isDefined()) {
-            integerValue = mIntegerMaybe.getOrThrow();
-        }
-
-        Assert.assertEquals(integerValue, Integer.valueOf(229));
+    public void testIsDefinedReturnsTrue() {
+        final Maybe<Integer> integerMaybe = Maybe.just(229);
+        assertThat(integerMaybe.isDefined()).isEqualTo(true);
     }
 
     @Test
-    public void testGetOfNullMaybe() throws Exception {
-        Integer nullValue = null;
+    public void testIsDefinedReturnsFalse() {
+        final Maybe<Integer> emptyMaybe = Maybe.empty();
+        assertThat(emptyMaybe.isDefined()).isEqualTo(false);
+    }
 
-        if (mNullMaybe.isDefined()) {
-            nullValue = mNullMaybe.getOrThrow();
-        }
-
-        Assert.assertEquals(nullValue, null);
+    @Test
+    public void testGetOrThrowReturnsCorrectValue() throws Exception {
+        final Maybe<Integer> integerMaybe = Maybe.just(229);
+        assertThat(integerMaybe.getOrThrow()).isEqualTo(Integer.valueOf(229));
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void testGetWithException() {
-        Assert.assertEquals(mNullMaybe.getOrThrow(), null);
+    public void testGetOrThrowReturnsException() {
+        final Maybe<Integer> emptyMaybe = Maybe.empty();
+        emptyMaybe.getOrThrow();
     }
 
 }
