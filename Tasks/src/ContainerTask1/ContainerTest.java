@@ -50,6 +50,8 @@ public class ContainerTest {
 
         final Container<Integer> copy = new Container<>(mContainerOfIntegers);
 
-        assertThat(copy.getList()).isNotSameAs(mContainerOfIntegers.getList());
+        copy.removeAt(2);
+
+        assertThat(mContainerOfIntegers.getList()).isNotEqualTo(copy.getList());
     }
 }
