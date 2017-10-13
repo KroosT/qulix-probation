@@ -1,9 +1,12 @@
 package Observer.MechanicsFirst;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.Nonnull;
+
+import Utils.Validator;
 
 class Mechanics {
 
@@ -11,18 +14,21 @@ class Mechanics {
 
     // called by system
     private void onMousePosition(final int x, final int y) {
-
-        for (final Observer observer : mObservers) {
+        for (final Observer observer : new ArrayList<>(mObservers)) {
             observer.onMousePositionEvent(Arrays.asList(x, y));
         }
     }
 
-    public void subscribe(final Observer observer) {
+    public void subscribe(@Nonnull final Observer observer) {
+        Validator.isArgNotNull(observer, "observer");
         mObservers.add(observer);
     }
 
-    public void unsubscribe(final Observer observer) {
-        mObservers.remove(observer);
+    public void unsubscribe(@Nonnull final Observer observer) {
+        Validator.isArgNotNull(observer, "observer");
+        if (!mObservers.isEmpty()) {
+            mObservers.remove(observer);
+        }
     }
 
     public void call() {
