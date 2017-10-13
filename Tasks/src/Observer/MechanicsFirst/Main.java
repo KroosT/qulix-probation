@@ -26,13 +26,13 @@ public class Main {
 
             @Override
             public void onMousePositionEvent(@Nonnull final List<Integer> params) {
+                Validator.isArgNotNull(params, "params");
 
                 countOfOnMousePositionEventHappened += 1;
                 if (countOfOnMousePositionEventHappened > 3) {
                     mechanics.unsubscribe(this);
                 }
 
-                Validator.isArgNotNull(params, "params");
                 final StringBuilder eventDescription = new StringBuilder("Observer second; ")
                         .append("Event: onMouseClick; ")
                         .append("Params: ");
