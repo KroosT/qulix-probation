@@ -19,8 +19,7 @@ class Container<T extends AnswersTo> {
 
     Container(final Container<T> container) {
         Validator.isArgNotNull(container, "container");
-        mList = new ArrayList<>(container.getList());
-
+        mList = container.getList();
     }
 
     List<T> getList() {
@@ -31,7 +30,7 @@ class Container<T extends AnswersTo> {
         mList.add(object);
     }
 
-    public T remove(final int index) {
+    public T removeAt(final int index) {
         return mList.remove(index);
     }
 
