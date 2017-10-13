@@ -1,40 +1,35 @@
 package Maybe;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
 
 public class MaybeTest {
 
-    private final Maybe<Integer> mIntegerMaybe = Maybe.just(229);
-    private final Maybe<Integer> mNullMaybe = Maybe.empty();
-
     @Test
-    public void testGetOfIntegerMaybe() throws Exception {
-        Integer integerValue = null;
-
-        if (mIntegerMaybe.isDefined()) {
-            integerValue = mIntegerMaybe.getOrThrow();
-        }
-
-        Assert.assertEquals(integerValue, Integer.valueOf(229));
+    public void testIfDefinedReturnsTrue() {
+        final Maybe<Integer> integerMaybe = Maybe.just(229);
+        assertEquals(integerMaybe.isDefined(), true);
     }
 
     @Test
-    public void testGetOfNullMaybe() throws Exception {
-        Integer nullValue = null;
+    public void testIfDefinedReturnsFalse() {
+        final Maybe<Integer> emptyMaybe = Maybe.empty();
+        assertEquals(emptyMaybe.isDefined(), false);
+    }
 
-        if (mNullMaybe.isDefined()) {
-            nullValue = mNullMaybe.getOrThrow();
-        }
-
-        Assert.assertEquals(nullValue, null);
+    @Test
+    public void testGetOrThrowReturnsValue() throws Exception {
+        final Maybe<Integer> integerMaybe = Maybe.just(229);
+        assertEquals(integerMaybe.getOrThrow(), Integer.valueOf(229));
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void testGetWithException() {
-        Assert.assertEquals(mNullMaybe.getOrThrow(), null);
+    public void testGetOrThrowReturnsException() throws Exception {
+
+        final Maybe<Integer> emptyMaybe = Maybe.empty();
+        assertEquals(emptyMaybe.getOrThrow(), null);
     }
 
 }
