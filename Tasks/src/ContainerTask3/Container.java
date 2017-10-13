@@ -30,11 +30,11 @@ class Container<T extends AnswersTo<E>, E> {
         mList.add(object);
     }
 
-    T removeByIndex(final int index) {
+    T removeAt(final int index) {
         return mList.remove(index);
     }
 
-    void removeObject(final T object) {
+    void remove(final T object) {
         mList.removeAll(Collections.singleton(object));
     }
 
