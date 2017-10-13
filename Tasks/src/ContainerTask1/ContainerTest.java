@@ -4,9 +4,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ContainerTest {
 
     private final Container<Integer> mContainerOfIntegers = new Container<>();
@@ -24,7 +21,7 @@ public class ContainerTest {
 
     @Test
     public void testRemoveObjectByIndex() throws Exception {
-        final Integer removedItem = mContainerOfIntegers.removeByIndex(1);
+        final Integer removedItem = mContainerOfIntegers.removeAt(1);
         Assert.assertFalse("Container must not contain removed item any more",
                 mContainerOfIntegers.getList().get(1).equals(removedItem));
     }
@@ -32,7 +29,7 @@ public class ContainerTest {
     @Test
     public void testRemoveObject() throws Exception {
         final Integer value = 28;
-        mContainerOfIntegers.removeObject(value);
+        mContainerOfIntegers.remove(value);
         Assert.assertFalse("Container must not contain removed item any more",
                 mContainerOfIntegers.getList().contains(value));
     }
