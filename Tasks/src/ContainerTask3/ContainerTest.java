@@ -36,7 +36,7 @@ public class ContainerTest {
                 .allThatAnswersTo("AUDIO");
         final List<Realtek> expected = Arrays.asList(realtek1, realtek2);
 
-        assertThat(containerAnswersTo.getList()).isEqualTo(expected);
+        assertThat(containerAnswersTo.getList()).containsExactlyElementsOf(expected);
 
     }
 
