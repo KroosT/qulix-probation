@@ -1,6 +1,7 @@
 package Maybe;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.util.NoSuchElementException;
@@ -8,28 +9,28 @@ import java.util.NoSuchElementException;
 public class MaybeTest {
 
     @Test
-    public void testIfDefinedReturnsTrue() {
+    public void IfDefined_NonEmptyMaybe_True() {
         final Maybe<Integer> integerMaybe = Maybe.just(229);
-        assertEquals(integerMaybe.isDefined(), true);
+        assertTrue(integerMaybe.isDefined());
     }
 
     @Test
-    public void testIfDefinedReturnsFalse() {
+    public void IfDefined_EmptyMaybe_False() {
         final Maybe<Integer> emptyMaybe = Maybe.empty();
-        assertEquals(emptyMaybe.isDefined(), false);
+        assertFalse(emptyMaybe.isDefined());
     }
 
     @Test
-    public void testGetOrThrowReturnsValue() throws Exception {
+    public void GetOrThrow_NonEmptyMaybe_Value() throws Exception {
         final Maybe<Integer> integerMaybe = Maybe.just(229);
         assertEquals(integerMaybe.getOrThrow(), Integer.valueOf(229));
     }
 
     @Test(expected = NoSuchElementException.class)
-    public void testGetOrThrowReturnsException() throws Exception {
+    public void GetOrThrow_EmptyMaybe_Exception() throws Exception {
 
         final Maybe<Integer> emptyMaybe = Maybe.empty();
-        assertEquals(emptyMaybe.getOrThrow(), null);
+        final int value = emptyMaybe.getOrThrow();
     }
 
 }
