@@ -1,4 +1,4 @@
-package com.qulix.shestakaa.maybe.Utils;
+package com.qulix.shestakaa.maybe.utils;
 
 public class Validator {
 

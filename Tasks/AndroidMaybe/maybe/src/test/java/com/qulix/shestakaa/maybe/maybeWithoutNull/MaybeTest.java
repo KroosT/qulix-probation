@@ -1,4 +1,4 @@
-package com.qulix.shestakaa.maybe.MaybeWithoutNull;
+package com.qulix.shestakaa.maybe.maybeWithoutNull;
 
 import org.junit.Assert;
 import org.junit.Test;

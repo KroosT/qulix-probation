@@ -1,6 +1,6 @@
-package com.qulix.shestakaa.maybe.Maybe;
+package com.qulix.shestakaa.maybe.maybe;
 
-import com.qulix.shestakaa.maybe.Utils.Validator;
+import com.qulix.shestakaa.maybe.utils.Validator;
 
 import java.util.NoSuchElementException;
 

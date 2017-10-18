@@ -1,4 +1,4 @@
-package com.qulix.shestakaa.maybe.Maybe;
+package com.qulix.shestakaa.maybe.maybe;
 
 import org.junit.Test;
 
