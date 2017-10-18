@@ -1,4 +1,4 @@
-package ContainerTask1;
+package containerTask1;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import Utils.Validator;
+import utils.Validator;
 
 @ParametersAreNonnullByDefault
 class Container<T> {

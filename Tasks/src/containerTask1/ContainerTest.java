@@ -1,4 +1,4 @@
-package ContainerTask1;
+package containerTask1;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +27,7 @@ public class ContainerTest {
         mContainerOfIntegers.removeAt(1);
         final List<Integer> expected = Arrays.asList(30, 1, 28);
 
-        assertThat(mContainerOfIntegers.getList()).isEqualTo(expected);
+        assertThat(mContainerOfIntegers.getList()).containsExactlyElementsOf(expected);
     }
 
     @Test
@@ -39,7 +39,7 @@ public class ContainerTest {
         mContainerOfIntegers.remove(28);
         final List<Integer> expected = Arrays.asList(30, 1);
 
-        assertThat(mContainerOfIntegers.getList()).isEqualTo(expected);
+        assertThat(mContainerOfIntegers.getList()).containsExactlyElementsOf(expected);
     }
 
     @Test
