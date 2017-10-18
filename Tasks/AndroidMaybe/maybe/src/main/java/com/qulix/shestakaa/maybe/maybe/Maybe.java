@@ -10,6 +10,8 @@ import javax.annotation.Nullable;
 @ParametersAreNonnullByDefault
 public class Maybe<T> {
 
+    private static final Maybe<?> EMPTY = new Maybe<>(null);
+
     @Nullable
     private final T mValue;
 
@@ -22,8 +24,9 @@ public class Maybe<T> {
         return new Maybe<>(value);
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> Maybe<T> empty() {
-        return new Maybe<>(null);
+        return (Maybe<T>) EMPTY;
     }
 
     public T getOrThrow() {
