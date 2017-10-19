@@ -11,6 +11,8 @@ import Utils.Validator;
 @ParametersAreNonnullByDefault
 class Maybe<T> {
 
+    private final static Maybe<?> EMPTY = new Maybe<>(null);
+
     @Nullable
     private final T mValue;
 
