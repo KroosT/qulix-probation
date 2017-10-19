@@ -11,4 +11,9 @@ class Consumer {
     public static void consume(final A as) {
         // actual processing is not relied to problem
     }
+
+    public static void consume(final A[] as) {
+        // actual processing is not relied to problem
+
+    }
 }
